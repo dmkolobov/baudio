@@ -105,7 +105,9 @@ B.prototype.play = function (opts) {
         'c' : this.channels.length,
         'r' : this.rate,
         't' : 's16',
-    }).concat('-'));
+    }).concat('-'), {
+        stdio: ['pipe', 'pipe', 'ignore']
+    });
     
     this.pipe(ps.stdin);
     return ps;
